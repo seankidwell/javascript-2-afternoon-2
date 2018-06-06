@@ -191,8 +191,8 @@ function removeItem(myGroceryList, item) {
 }
 function addItem(myGroceryList, item) {
   if (myGroceryList && item) {
-    var update = myGroceryList.push(item);
-    return update;
+    myGroceryList.push(item);
+    return myGroceryList;
   } else if (!myGroceryList || !item) {
     return [];
   }
@@ -205,7 +205,13 @@ function addItem(myGroceryList, item) {
   Write a function called maker that creates an array, fills that array with numbers from 1 to 215, then returns the array.
 */
 
-//Code Here
+var maker = function() {
+  var array = [];
+  for (var i = 1; i <= 215; i++) {
+    array.push(i);
+  }
+  return array;
+}
 
 
 
@@ -221,7 +227,10 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
   *Verify your answer is correct. --> [15, 19, 26, 29, 35, 44, 58]
 */
   
-//Code Here
+var addTen = function(numbers) {
+  var newArr = numbers.map(num => Number(num)+10);
+  return newArr;
+}
 
 
 
@@ -246,7 +255,13 @@ for(var i = 0; i < num2; i++){
   Return the array which is longest.
 */
 
-//Code Here
+var longer = function(arr1,arr2) {
+  if (arr1.length>arr2.length) {
+    return arr1;
+  } else {
+    return arr2;
+  }
+}
 
 
 
@@ -258,7 +273,24 @@ for(var i = 0; i < num2; i++){
   Example: var arr1 = [1,2,3,4]; var arr2 = [2,4,5,6]; newArray // [2,4]
 */
 
-//Code Here
+var both = function(arr1, arr2) {
+  
+  var long;
+  var short;
+  if (arr1>arr2) {
+    long = arr1;
+    short = arr2;
+  } else {
+    long = arr2;
+    short = arr1;
+  }
+  for (var i = long.length-1; i >= 0; i--) {
+    if (!short.includes(long[i])) {
+      long.splice(i,1)
+    }
+  }
+  return long;
+}
 
 
 
@@ -298,7 +330,8 @@ var colt = {
   After that console.log the length of the Array and make sure that it's equal to 4. 
 */
 
-//Code Here
+devMountainEmployees.push(tyler, cahlan, ryan, colt);
+console.log(devMountainEmployees);
 
 
 
@@ -307,7 +340,11 @@ var colt = {
   Loop through your devMountainEmployees until you find cahlan, then remove him from the array.
 */
 
-//Code Here
+for (var i = 0; i < devMountainEmployees.length; i++) {
+  if (devMountainEmployees[i]===cahlan) {
+    devMountainEmployees.splice(i,1);
+  }
+}
 
 
 
@@ -319,7 +356,7 @@ var colt = {
   Create an empty array called users.
 */
 
-//Code Here
+var users = []
 
 
 
@@ -338,7 +375,19 @@ var user1 = {
 };
 // Do not edit the code above.
 
-//Code Here
+var user2 = {
+  name: 'Mitch',
+  email: 'mitchtheman@gmail.com',
+  password: 'doodle',
+  username: 'theDoodler'
+}
+var user3 = {
+  name: 'Jerry',
+  email: 'jerbear@gmail.com',
+  password: 'papabear',
+  username: 'bearOfJer'
+}
+users.push(user1, user2, user3);
 
 
 
@@ -352,7 +401,11 @@ var user1 = {
   Once you find the particular index he's located in, delete him from the array.
 */
 
-//Code Here
+for (var i = 0; i < users.length; i++) {
+  if (users[i].email==='tylermcginnis33@gmail.com') {
+    users.splice(i,1);
+  }
+}
 
 
 
